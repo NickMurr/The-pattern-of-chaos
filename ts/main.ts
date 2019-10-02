@@ -1,4 +1,5 @@
 let current = 1;
+let count = 0;
 enum Num {
   a = 1,
   b,
@@ -35,19 +36,10 @@ ctx.fillStyle = "red";
 ctx.fill();
 ctx.closePath();
 
-ctx.beginPath();
-ctx.arc(240, 160, 5, 0, Math.PI * 2, false);
-ctx.fillStyle = "green";
-ctx.fill();
-ctx.closePath();
-
-ctx.beginPath();
-ctx.arc(360, 80, 5, 0, Math.PI * 2, false);
-ctx.fillStyle = "green";
-ctx.fill();
-ctx.closePath();
+const counter = document.getElementById("count");
 
 setInterval(() => {
+  count = count + 1;
   const currentDot = Math.floor(Math.random() * 3 + 1);
   const x = init[Num[currentDot]];
   const newItem = [Math.abs(x[0] + d[0]) / 2, Math.abs(x[1] + d[1]) / 2];
@@ -58,4 +50,5 @@ setInterval(() => {
   ctx.fillStyle = "green";
   ctx.fill();
   ctx.closePath();
+  counter.textContent = count;
 }, 1);
