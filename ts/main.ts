@@ -22,6 +22,12 @@ const c = new Canvas({
   start: [240, 160],
 });
 
+console.log(c.initValue);
 setInterval(() => {
   c.drawDots();
 }, 1);
+
+setTimeout(() => {
+  c.setInit({ a: [5, 5] });
+  console.log(c.init);
+}, 5000);

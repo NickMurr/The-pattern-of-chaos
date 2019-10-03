@@ -24,6 +24,15 @@ export default class Canvas {
     this.drawDots();
   }
 
+  public get initValue(): { [key: string]: [number, number] } {
+    return this.init;
+  }
+
+  public setInit(v: any) {
+    const newInit = { ...this.init, ...v };
+    this.init = newInit;
+  }
+
   public drawInit() {
     Object.keys(this.init).forEach((i) => {
       this.ctx.beginPath();
